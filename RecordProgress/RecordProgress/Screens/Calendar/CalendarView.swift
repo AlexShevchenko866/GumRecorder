@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     @State var vm: CalendarViewModel = CalendarViewModel()
+    @Environment(AppRouter.self) private var router
     
     var body: some View {
         VStack(spacing: 0) {
@@ -45,7 +46,7 @@ struct CalendarView: View {
             
             Spacer()
             Button("+", action: {
-                print("open new worckout screen")
+                router.navigate(to: .addExercise)
             })
             .frame(width: 100, height: 50, alignment: .center)
             .background(Color.blue)
