@@ -19,10 +19,6 @@ struct ContentView: View {
                             case .calendar: CalendarView()
                                     .navigationTransition(.zoom(sourceID: "id", in: namespace))
                             case .addExercise: AddExerciseView()
-                                    .transition(.asymmetric(
-                                        insertion: .move(edge: .trailing).combined(with: .opacity),
-                                        removal: .move(edge: .leading).combined(with: .opacity)
-                                    ))
                             }
                         }
                 }
