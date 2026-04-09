@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 struct CalendarView: View {
     @State var vm: CalendarViewModel = CalendarViewModel()
-    @Environment(AppRouter.self) private var router
+    var router: AnyRouter
     
     var body: some View {
         VStack(spacing: 0) {
@@ -46,7 +47,9 @@ struct CalendarView: View {
             
             Spacer()
             Button("+", action: {
-                router.navigate(to: .addExercise)
+                router.showScreen(.fullScreenCover) { router in
+                    AddExerciseView(router: router)
+                }
             })
             .frame(width: 100, height: 50, alignment: .center)
             .background(Color.blue)
@@ -175,10 +178,8 @@ struct CalendarView: View {
 }
 
 
-struct CalendarView_Previews: PreviewProvider {
-    @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-    static var previews: some View {
-        CalendarView()
+#Preview {
+    RouterView { router in
+        CalendarView(router: router)
     }
 }
-

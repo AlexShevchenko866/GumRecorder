@@ -16,3 +16,5 @@ class MuscleGroup {
         self.exercises = exercises
     }
 }
+
+

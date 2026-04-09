@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 struct AddExerciseView: View {
+    var router: AnyRouter
+    
     var body: some View {
         Text("Hello, World!")
+            .onTapGesture {
+                router.dismissScreen()
+            }
     }
 }

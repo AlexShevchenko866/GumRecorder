@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 struct HomeView: View {
-    @Environment(AppRouter.self) private var router
+    var router: AnyRouter
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -16,7 +17,9 @@ struct HomeView: View {
                 .font(.body.bold())
                 .frame(maxWidth: .infinity, alignment: .center)
             Button {
-                router.navigate(to: .calendar)
+                router.showScreen(.push) { router in
+                    CalendarView(router: router)
+                }
             } label: {
                 Label("Go Next", systemImage: "house.fill")
                     .font(.body.bold())

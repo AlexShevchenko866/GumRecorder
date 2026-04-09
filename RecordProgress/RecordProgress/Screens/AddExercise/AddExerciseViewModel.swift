@@ -9,5 +9,11 @@ import SwiftUI
 
 @Observable
 final class AddExerciseViewModel {
-    
+    var musculeGroups: [MuscleGroup] = []
+}
+
+extension AddExerciseViewModel {
+    func fetchMuscleGroups() {
+      
+    }
 }
